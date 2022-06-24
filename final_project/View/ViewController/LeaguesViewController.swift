@@ -9,6 +9,7 @@ import UIKit
 import SafariServices
 
 class LeaguesViewController: UIViewController {
+    var teambadge : String?
     var checkLeagues = ""
     var leaguesArray = [League]()
     var checksprts : Sport?
@@ -56,8 +57,8 @@ extension LeaguesViewController : UITableViewDelegate,UITableViewDataSource{
     override func viewDidAppear(_ animated: Bool) {
         if (leaguesArray.count == 0)
         {
-            for _ in 0...10000000000 {}
-            showalert()
+            for _ in 0...30000000 {}
+            showalertt()
         }
     }
     
@@ -74,17 +75,13 @@ extension LeaguesViewController : UITableViewDelegate,UITableViewDataSource{
             LeaguesDetailesViewController
    
         vc.checkstrname = leaguesArray.filter({$0.strSport == checkLeagues})[indexPath.row].strLeague!
-        vc.checkimage = leaguesArray.filter({$0.strSport == checkLeagues})[indexPath.row].strBadge!
-        vc.checkyoutube = leaguesArray.filter({$0.strSport == checkLeagues})[indexPath.row].strYoutube!
-            vc.leg = leaguesArray.filter({$0.strSport == checkLeagues})[indexPath.row]
-         print(leaguesArray[indexPath.row].strYoutube!)
-          present(vc, animated: true, completion: nil)
-        //    navigationController?.pushViewController(vc, animated: true)
+        vc.leg = leaguesArray.filter({$0.strSport == checkLeagues})[indexPath.row]
+        present(vc, animated: true, completion: nil)
     }
 }
 extension LeaguesViewController{
-    func showalert(){
-        let alert = UIAlertController(title: "Sorry", message: "This Sport Will Coming Soon ", preferredStyle: .alert)
+    func showalertt(){
+        let alert = UIAlertController(title: "Sorry", message: "This League Will Coming Soon ", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         
@@ -101,4 +98,15 @@ extension LeaguesViewController : newpop{
     }
     
     
+}
+
+
+extension LeaguesViewController
+{
+    func showalert(){
+        let alert = UIAlertController(title: "Sorry", message: "This Detailes Leagues Will Coming Soon ", preferredStyle: .alert)
+              alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+    }
+    
+
 }

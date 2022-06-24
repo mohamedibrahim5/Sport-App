@@ -87,7 +87,6 @@ extension DBmanger {
         
     }
 
-        
         func fetchData(appDelegate : AppDelegate) -> [Fav]{
             var fetchedList : [Fav] = []
             let managedContext = appDelegate.persistentContainer.viewContext
@@ -98,9 +97,7 @@ extension DBmanger {
                     print("Error In ReadData")
                     print(error.localizedDescription)
                 }
-
             return fetchedList
-
         }
     func delete(favourite:Fav, indexPath: IndexPath, appDelegate: AppDelegate, delegate: DeletionDelegate){
 
@@ -116,6 +113,7 @@ extension DBmanger {
         }
 
     }
+   
 
     }
 

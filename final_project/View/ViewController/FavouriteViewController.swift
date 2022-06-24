@@ -7,6 +7,7 @@
 
 import UIKit
 import SafariServices
+import Network
 class FavouriteViewController: UIViewController {
     var db = DBmanger.sharedInstance
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -14,7 +15,6 @@ class FavouriteViewController: UIViewController {
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         arr = db.fetchData(appDelegate: appDelegate)
         DispatchQueue.main.async { [self] in
             tableview.reloadData()
@@ -46,18 +46,38 @@ extension FavouriteViewController : UITableViewDelegate,UITableViewDataSource{
     override func viewDidAppear(_ animated: Bool) {
         tableview.reloadData()
     }
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print(leaguesArray.filter({$0.strSport == checkLeagues})[indexPath.row].strLeague!)
-//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "down") as! LeaguesDetailesViewController
-////        vc.checkLeagues = usersArray[indexPath.row].strLeague
-////        vc.checksprts = usersArray[indexPath.row]
-//        vc.checkstrname = leaguesArray.filter({$0.strSport == checkLeagues})[indexPath.row].strLeague!
-//        vc.leg = leaguesArray.filter({$0.strSport == checkLeagues})[indexPath.row]
-//        print(leaguesArray[indexPath.row].strLeague!)
-//        navigationController?.pushViewController(vc, animated: true)
-//
-//
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let monitor = NWPathMonitor()
+        monitor.pathUpdateHandler = { [self] path in
+            if path.status == .satisfied{
+                    DispatchQueue.main.async { [self] in
+                        print("internet Connected")
+                        tableview.reloadData()
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "down") as!
+                        LeaguesDetailesViewController
+                        vc.arr = arr[indexPath.row]
+                        vc.checkstrname = arr[indexPath.row].name!
+//                        if (arr[indexPath.row].name!.isEmpty || ((arr[indexPath.row].sport?.isEmpty) != nil)){
+//                            showalertt()
+//                        }
+                      present(vc, animated: true, completion: nil)
+
+                    }
+            } else {
+                
+                DispatchQueue.main.async { [self] in
+                    showalert()
+                  
+                tableview.reloadData()
+
+                }
+            }
+        }
+
+        let queue = DispatchQueue(label: "Network")
+        monitor.start(queue: queue)
+       
+    }
 }
 
 extension FavouriteViewController:Gotoyoutube{
@@ -69,3 +89,21 @@ extension FavouriteViewController:Gotoyoutube{
         print("helloworld")
     }
 }
+
+extension FavouriteViewController
+{
+    func showalert(){
+        let alert = UIAlertController(title: "Warning", message: "You are Not connect to InterNet ", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+//    func showalertt(){
+//        let alert = UIAlertController(title: "Sorry", message: "This Leagues Will Coming Soon ", preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+//        self.present(alert, animated: true, completion: nil)
+//        
+   }
+//
+//}
+
+

@@ -8,8 +8,9 @@
 import UIKit
 import SafariServices
 class LeaguesDetailesViewController:UIViewController {
-  
-    
+
+    var y = 0
+    var arr : Fav?
     var fetch : [Fav]?
     var arrcheck : [String] = []
     var check : String = ""
@@ -17,15 +18,6 @@ class LeaguesDetailesViewController:UIViewController {
     @IBAction func back(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    var isChecked: Bool = false {
-           didSet {
-               if isChecked == true {
-               } else {
-               }
-           }
-       }
-
-    var ischecked : Bool?
     var db = DBmanger.sharedInstance
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -36,28 +28,23 @@ class LeaguesDetailesViewController:UIViewController {
     @IBOutlet weak var fav: UIButton!
     @IBAction func favourite(_ sender: UIButton) {
         
+            sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        
         fetch = db.fetchData(appDelegate: appDelegate)
         for index in 0..<fetch!.count{
             arrcheck.append(fetch?[index].name ?? "")
         }
-        if isChecked == true {
-            fav.setTitle("fav", for: .normal)
-            isChecked = !isChecked
-        }
         if arrcheck.contains(checkstrname) {
             print("you are adding it before ")
-            fav.setTitle("unfav", for: .normal)
             
-        }else {
-            print(isChecked)
-        if isChecked == false{
-            
+        }
+        else if (y == 1 ) {
+            print("do not add empty data ")
+        }
+        else {
             db.addimageandytblink(appDelegate: appDelegate,strname: checkstrname, strimage: checkimage, stryoutbe: checkyoutube, strid: id)
-            isChecked = !isChecked
-        }
-        }
        
-        
+        }
     }
     var checkstrname:String = ""
     var checkimage : String = ""
@@ -69,59 +56,29 @@ class LeaguesDetailesViewController:UIViewController {
     var eventdetailes = [Event]()
     
     @IBOutlet weak var collection: UICollectionView!
-    
-    
+   
     var latestevent = [LatestEvent]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        let leagueName_arr = checkstrname.components(separatedBy: " ")
+        var leagueName_final = (leagueName_arr[0])
+        for index in 1..<leagueName_arr.count {
+            leagueName_final = leagueName_final + "%20\(leagueName_arr[index])"
+                        }
         collection4up.register(UINib(nibName: "CollectionViewCellup2", bundle: nil), forCellWithReuseIdentifier: "cellup2")
         tableview.delegate = self
         tableview.dataSource = self
         checkarrstr = checkstrname.components(separatedBy: " ")
-        print(checkstrname)
-        
         let leaguPresenter : LeaguesDetailesPresenter = LeaguesDetailesPresenterr(LeaguesDetailes: self)
         let eventPresenter : EventPresenterr = EventPresenterr(LeaguesDetailes: self)
         let latestevent : LatestEventsPresenter = LatestEventPresenterr(LeaguesDetailes: self)
-        switch (checkarrstr.count)
-        {
-        case 1 :
-            leaguPresenter.fetchData(endPoint: "\(checkarrstr[0])")
-            eventPresenter.fetchData(endPoint: "\(checkarrstr[0])")
-            latestevent.fetchData(endPoint: "\(checkarrstr[0])_2021")
-        case 2 :
-            leaguPresenter.fetchData(endPoint: "\(checkarrstr[0])_\(checkarrstr[1])")
-            eventPresenter.fetchData(endPoint: "\(checkarrstr[0])_\(checkarrstr[1])")
-            latestevent.fetchData(endPoint: "\(checkarrstr[0])_\(checkarrstr[1])_2021")
-        case 3:
-            leaguPresenter.fetchData(endPoint: "\(checkarrstr[0])_\(checkarrstr[1])_\(checkarrstr[2])")
-            eventPresenter.fetchData(endPoint: "\(checkarrstr[0])_\(checkarrstr[1])_\(checkarrstr[2])")
-            latestevent.fetchData(endPoint: "\(checkarrstr[0])_\(checkarrstr[1])_\(checkarrstr[2])_2021")
-        case 4 :
-            leaguPresenter.fetchData(endPoint: "\(checkarrstr[0])_\(checkarrstr[1])_\(checkarrstr[2])_\(checkarrstr[3])")
-            eventPresenter.fetchData(endPoint: "\(checkarrstr[0])_\(checkarrstr[1])_\(checkarrstr[2])_\(checkarrstr[3])")
-            latestevent.fetchData(endPoint: "\(checkarrstr[0])_\(checkarrstr[1])_\(checkarrstr[2])_\(checkarrstr[3])_2021")
-        case 5 :
-            leaguPresenter.fetchData(endPoint: "\(checkarrstr[0])_\(checkarrstr[1])_\(checkarrstr[2])_\(checkarrstr[3])_\(checkarrstr[4])")
-            eventPresenter.fetchData(endPoint: "\(checkarrstr[0])_\(checkarrstr[1])_\(checkarrstr[2])_\(checkarrstr[3])_\(checkarrstr[4])")
-            latestevent.fetchData(endPoint: "\(checkarrstr[0])_\(checkarrstr[1])_\(checkarrstr[2])_\(checkarrstr[3])_\(checkarrstr[4])_2021")
-        case 6 :
-            leaguPresenter.fetchData(endPoint: "\(checkarrstr[0])_\(checkarrstr[1])_\(checkarrstr[2])_\(checkarrstr[3])_\(checkarrstr[4])_\(checkarrstr[5])")
-            eventPresenter.fetchData(endPoint: "\(checkarrstr[0])_\(checkarrstr[1])_\(checkarrstr[2])_\(checkarrstr[3])_\(checkarrstr[4])_\(checkarrstr[5])")
-            latestevent.fetchData(endPoint: "\(checkarrstr[0])_\(checkarrstr[1])_\(checkarrstr[2])_\(checkarrstr[3])_\(checkarrstr[4])_\(checkarrstr[5])_2021")
-        case 7 :
-            leaguPresenter.fetchData(endPoint: "\(checkarrstr[0])_\(checkarrstr[1])_\(checkarrstr[2])_\(checkarrstr[3])_\(checkarrstr[4])_\(checkarrstr[5])_\(checkarrstr[6])_2021")
-            eventPresenter.fetchData(endPoint: "\(checkarrstr[0])_\(checkarrstr[1])_\(checkarrstr[2])_\(checkarrstr[3])_\(checkarrstr[4])_\(checkarrstr[5])_\(checkarrstr[6])_2021")
-            latestevent.fetchData(endPoint: "\(checkarrstr[0])_\(checkarrstr[1])_\(checkarrstr[2])_\(checkarrstr[3])_\(checkarrstr[4])_\(checkarrstr[5])_\(checkarrstr[6])_2021")
-        default :
-            showalert()
-        }
+        leaguPresenter.fetchData(endPoint: leagueName_final)
+        eventPresenter.fetchData(endPoint: leagueName_final)
+        latestevent.fetchData(endPoint: "\(leagueName_final)_2021")
+        
        
     }
 }
-
-
-
 
 extension LeaguesDetailesViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -162,27 +119,20 @@ extension LeaguesDetailesViewController:UICollectionViewDelegate,UICollectionVie
         }
         if collectionView == collection{
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "cellteam") as! ViewController2
-       //     present(vc, animated: true, completion: nil)
             vc.team = leaguesDetailes[indexPath.row]
         //  navigationController?.pushViewController(vc, animated: true)
             present(vc, animated: true, completion: nil)
         }
     }
-   
-    
-}
-
-
-extension LeaguesDetailesViewController{
-    func showalert(){
-        let alert = UIAlertController(title: "Sorry", message: "This Leagues Will Coming Soon ", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-        
+    override func viewDidAppear(_ animated: Bool) {
+        if (latestevent.count == 0 || leaguesDetailes.count == 0){
+           y = 1
+        }
+        if (y == 1){
+            showalertt()
+        }
     }
 }
-
-
 
 extension LeaguesDetailesViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -196,10 +146,7 @@ extension LeaguesDetailesViewController : UITableViewDelegate, UITableViewDataSo
         cell.time.text = eventdetailes[indexPath.row].dateEvent
         return cell
     }
-    
-    
 }
-
 
 extension LeaguesDetailesViewController : EventsView{
     func renderHomeView(users: [Event]) {
@@ -241,6 +188,14 @@ extension LeaguesDetailesViewController : LeaguesDetailesView{
     func postErrorHomeView(error: Error) {
         print(error.localizedDescription)
     }
+}
 
 
+extension LeaguesDetailesViewController{
+    func showalertt(){
+        let alert = UIAlertController(title: "Sorry", message: "This League Will Coming Soon ", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
 }

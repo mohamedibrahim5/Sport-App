@@ -13,5 +13,5 @@ class LeaguesDetailes: NSObject, Codable {
 }
 
 class LeaguesDetaile: NSObject, Codable {
-    let idTeam, idSoccerXML , strTeam , idLeague,strSport,strLeague,strAlternate,strTeamBadge,intFormedYear,strTeamFanart1,strDescriptionEN,strStadium:String?
+    let idTeam, idSoccerXML , strTeam , idLeague,strSport,strLeague,strAlternate,strTeamBadge,intFormedYear,strTeamFanart1,strDescriptionEN,strStadium,strBadge:String?
 }
