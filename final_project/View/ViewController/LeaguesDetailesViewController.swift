@@ -36,10 +36,12 @@ class LeaguesDetailesViewController:UIViewController {
         }
         if arrcheck.contains(checkstrname) {
             print("you are adding it before ")
+            showalerttt()
             
         }
         else if (y == 1 ) {
             print("do not add empty data ")
+            showalertttt()
         }
         else {
             db.addimageandytblink(appDelegate: appDelegate,strname: checkstrname, strimage: checkimage, stryoutbe: checkyoutube, strid: id)
@@ -108,7 +110,7 @@ extension LeaguesDetailesViewController:UICollectionViewDelegate,UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == collection4up{
-            return CGSize(width: self.view.frame.width*0.99, height: self.view.frame.width*0.5)
+            return CGSize(width: self.view.frame.width*0.8, height: self.view.frame.width*0.5)
         }
         return CGSize(width: self.view.frame.width*0.25, height: self.view.frame.width*0.5)
     }
@@ -125,10 +127,11 @@ extension LeaguesDetailesViewController:UICollectionViewDelegate,UICollectionVie
         }
     }
     override func viewDidAppear(_ animated: Bool) {
-        if (latestevent.count == 0 || leaguesDetailes.count == 0){
+        if (latestevent.count == 0 && leaguesDetailes.count == 0){
            y = 1
         }
         if (y == 1){
+            for _ in 0...15000000{}
             showalertt()
         }
     }
@@ -194,6 +197,19 @@ extension LeaguesDetailesViewController : LeaguesDetailesView{
 extension LeaguesDetailesViewController{
     func showalertt(){
         let alert = UIAlertController(title: "Sorry", message: "This League Will Coming Soon ", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func showalerttt(){
+        let alert = UIAlertController(title: "Warning", message: "You are add it brfore ", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    func showalertttt(){
+        let alert = UIAlertController(title: "Sorry", message: "can not add empty league now ", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         

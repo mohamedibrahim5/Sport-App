@@ -9,6 +9,9 @@ import UIKit
 
 class ViewController2: UIViewController {
     
+    @IBAction func backing(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
     @IBOutlet weak var label5: UILabel!
     @IBOutlet weak var label4: UILabel!
     @IBOutlet weak var imageView: UIImageView!
