@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oTw-nD-aEp">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -102,9 +103,7 @@
                                                     <rect key="frame" x="317" y="24.5" width="97" height="31"/>
                                                     <color key="tintColor" systemColor="linkColor"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="filled" image="video.fill" catalog="system">
-                                                        <color key="baseBackgroundColor" systemColor="systemPinkColor"/>
-                                                    </buttonConfiguration>
+                                                    <buttonConfiguration key="configuration" style="plain" image="video.fill" catalog="system" title="."/>
                                                     <connections>
                                                         <action selector="youtubebutton:" destination="ijy-IC-jjr" eventType="touchUpInside" id="szb-aV-UMu"/>
                                                     </connections>
@@ -310,10 +309,10 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Lz-ro-D20">
-                                <rect key="frame" x="327" y="43" width="45" height="31"/>
+                                <rect key="frame" x="267.5" y="43" width="104.5" height="31"/>
                                 <color key="tintColor" systemColor="systemPinkColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="heart.circle.fill" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="plain" image="heart.circle.fill" catalog="system" title="Favourite"/>
                                 <connections>
                                     <action selector="favourite:" destination="jyh-c7-Yy6" eventType="touchUpInside" id="QDO-4n-n5X"/>
                                 </connections>
@@ -507,7 +506,7 @@
                                                     <rect key="frame" x="311" y="28.5" width="83" height="31"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="filled" image="video.fill" catalog="system">
+                                                    <buttonConfiguration key="configuration" style="filled" image="video.fill" catalog="system" title=".">
                                                         <color key="baseBackgroundColor" systemColor="systemRedColor"/>
                                                     </buttonConfiguration>
                                                     <connections>
@@ -612,12 +611,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowshape.turn.up.backward.2" catalog="system" width="128" height="86"/>
-        <image name="heart.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="homekit" catalog="system" width="128" height="106"/>
-        <image name="sportscourt" catalog="system" width="128" height="84"/>
+        <image name="arrowshape.turn.up.backward.2" catalog="system" width="32" height="32"/>
+        <image name="heart.circle.fill" catalog="system" width="32" height="32"/>
+        <image name="homekit" catalog="system" width="32" height="32"/>
+        <image name="sportscourt" catalog="system" width="32" height="32"/>
         <image name="t" width="640" height="360"/>
-        <image name="video.fill" catalog="system" width="128" height="82"/>
+        <image name="video.fill" catalog="system" width="32" height="32"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

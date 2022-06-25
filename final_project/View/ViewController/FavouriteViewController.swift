@@ -65,7 +65,7 @@ extension FavouriteViewController : UITableViewDelegate,UITableViewDataSource{
         tableview.reloadData()
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteItem = UIContextualAction(style: .destructive, title: "remove from Favourite") { [self] Action, view, completionHandler in
+        let deleteItem = UIContextualAction(style: .destructive, title: "delete") { [self] Action, view, completionHandler in
             db.delete(favourite: self.arr[indexPath.row], indexPath: indexPath, appDelegate: appDelegate, delegate: self)
         }
         return UISwipeActionsConfiguration(actions: [deleteItem])
