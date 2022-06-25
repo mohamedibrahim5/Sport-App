@@ -1,22 +1,23 @@
 {
   "images" : [
     {
-      "filename" : "test-1.jpeg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "test.png",
+      "filename" : "360_F_287039812_EsKgzX5FdCIJ7CXN1Wo6BTCdBKSr9sCD.jpeg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "test.jpeg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
       "idiom" : "universal",
       "scale" : "3x"
     },
     {
-      "filename" : "Team Youtube.png",
       "idiom" : "iphone",
       "scale" : "1x"
     },

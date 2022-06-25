@@ -99,6 +99,7 @@ extension LeaguesDetailesViewController:UICollectionViewDelegate,UICollectionVie
             cell.event.text = latestevent[indexPath.row].strEvent
             cell.home.text = latestevent[indexPath.row].intHomeScore
             cell.away.text = latestevent[indexPath.row].intAwayScore
+            cell.data.text = latestevent [indexPath.row].dateEvent
             return cell
         }
             let cell = collection.dequeueReusableCell(withReuseIdentifier: "celldown", for: indexPath) as! LeaguesDetailesCollectionViewCelldown
@@ -131,7 +132,7 @@ extension LeaguesDetailesViewController:UICollectionViewDelegate,UICollectionVie
            y = 1
         }
         if (y == 1){
-            for _ in 0...20000000{}
+            for _ in 0...10000000{}
             showalertt()
         }
     }

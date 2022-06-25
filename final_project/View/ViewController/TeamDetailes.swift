@@ -21,12 +21,12 @@ class ViewController2: UIViewController {
     @IBOutlet weak var label: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        label.text = team?.strTeam
-        label2.text = team?.intFormedYear
-        label3.text = team?.strLeague
-        imageView.loadFrom(URLAddress: (team?.strTeamBadge)!)
-        label4.text = team?.strStadium
-        label5.text = team?.strDescriptionEN
+        label.text = team?.strTeam ?? ""
+        label2.text = team?.intFormedYear ?? ""
+        label3.text = team?.strLeague ?? ""
+        imageView.loadFrom(URLAddress: (team?.strTeamBadge) ?? "" ) 
+        label4.text = team?.strStadium ?? ""
+        label5.text = team?.strDescriptionEN ?? ""
         // Do any additional setup after loading the view.
     }
 }

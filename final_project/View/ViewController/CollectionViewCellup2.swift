@@ -12,6 +12,7 @@ class CollectionViewCellup2: UICollectionViewCell {
    
     @IBOutlet weak var away: UILabel!
     
+    @IBOutlet weak var data: UILabel!
     @IBOutlet weak var home: UILabel!
     @IBOutlet weak var event: UILabel!
     override func awakeFromNib() {

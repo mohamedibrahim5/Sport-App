@@ -23,6 +23,10 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
+                        <imageView key="backgroundView" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t" id="1SM-iy-aii">
+                            <rect key="frame" x="0.0" y="-88" width="414" height="896"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="aVq-Jf-q52" customClass="HomeCollectionViewCell" customModule="final_project" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="193" height="128"/>
@@ -35,8 +39,8 @@
                                             <rect key="frame" x="50" y="16" width="80" height="80"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBI-XW-EW8">
-                                            <rect key="frame" x="50" y="104" width="80" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBI-XW-EW8">
+                                            <rect key="frame" x="50" y="104" width="105" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -410,8 +414,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8IP-19-tFn">
-                                <rect key="frame" x="80" y="479" width="334" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8IP-19-tFn">
+                                <rect key="frame" x="80" y="479" width="254" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -444,12 +448,12 @@
                             <constraint firstItem="PHs-Un-oB6" firstAttribute="top" secondItem="Dyi-fF-dvE" secondAttribute="bottom" constant="40" id="GAI-5f-GWx"/>
                             <constraint firstItem="bgV-tr-ZKH" firstAttribute="top" secondItem="7PE-fE-ZVi" secondAttribute="top" constant="396" id="GZE-lu-y1R"/>
                             <constraint firstItem="ngF-Kk-SYw" firstAttribute="top" secondItem="6yr-we-dlD" secondAttribute="bottom" constant="20" id="JmF-W3-Ki9"/>
+                            <constraint firstAttribute="trailing" secondItem="8IP-19-tFn" secondAttribute="trailing" constant="80" id="L4a-WE-bnB"/>
                             <constraint firstItem="ngF-Kk-SYw" firstAttribute="leading" secondItem="iuu-jM-xFM" secondAttribute="leading" constant="80" id="TDh-Qr-iYs"/>
                             <constraint firstItem="LHy-mU-vTP" firstAttribute="top" secondItem="ngF-Kk-SYw" secondAttribute="bottom" constant="20" id="UMe-s3-Run"/>
                             <constraint firstItem="Ik3-px-h4n" firstAttribute="top" secondItem="zRb-UR-gq1" secondAttribute="bottom" constant="22" id="UkR-EX-LNH"/>
                             <constraint firstItem="Dyi-fF-dvE" firstAttribute="top" secondItem="pRg-HS-lG4" secondAttribute="bottom" constant="40" id="VX1-04-U4a"/>
                             <constraint firstItem="bgV-tr-ZKH" firstAttribute="leading" secondItem="ngF-Kk-SYw" secondAttribute="trailing" constant="40" id="Vuy-E2-9bf"/>
-                            <constraint firstItem="iuu-jM-xFM" firstAttribute="trailing" secondItem="8IP-19-tFn" secondAttribute="trailing" id="W5k-Lt-5Yh"/>
                             <constraint firstItem="zRb-UR-gq1" firstAttribute="trailing" secondItem="7PE-fE-ZVi" secondAttribute="trailingMargin" id="Wgu-fM-891"/>
                             <constraint firstItem="zRb-UR-gq1" firstAttribute="top" secondItem="7PE-fE-ZVi" secondAttribute="top" constant="315" id="XrG-FW-KUl"/>
                             <constraint firstItem="pRg-HS-lG4" firstAttribute="centerX" secondItem="Dyi-fF-dvE" secondAttribute="centerX" id="YJV-OD-D6y"/>
@@ -612,6 +616,7 @@
         <image name="heart.circle.fill" catalog="system" width="128" height="121"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="sportscourt" catalog="system" width="128" height="84"/>
+        <image name="t" width="640" height="360"/>
         <image name="video.fill" catalog="system" width="128" height="82"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -16,8 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MESports  ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBD-8Z-9fW">
-                                <rect key="frame" x="134.5" y="433" width="145" height="30"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t" translatesAutoresizingMaskIntoConstraints="NO" id="b8o-2G-dhG">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MASports  ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBD-8Z-9fW">
+                                <rect key="frame" x="0.0" y="563" width="414" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="bEd-5M-dgz"/>
+                                    <constraint firstAttribute="width" constant="414" id="vmB-B3-Ptb"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <color key="textColor" systemColor="systemPinkColor"/>
                                 <nil key="highlightedColor"/>
@@ -26,8 +33,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="DBD-8Z-9fW" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Avc-8f-2e0"/>
-                            <constraint firstItem="DBD-8Z-9fW" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="YUq-f2-FYU"/>
+                            <constraint firstItem="DBD-8Z-9fW" firstAttribute="leading" secondItem="b8o-2G-dhG" secondAttribute="leading" id="4AB-Eq-HJQ"/>
+                            <constraint firstItem="DBD-8Z-9fW" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="IEU-cX-VUz"/>
+                            <constraint firstItem="DBD-8Z-9fW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="519" id="Mya-4q-078"/>
+                            <constraint firstItem="b8o-2G-dhG" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ZmH-tj-HcC"/>
+                            <constraint firstItem="DBD-8Z-9fW" firstAttribute="trailing" secondItem="b8o-2G-dhG" secondAttribute="trailing" id="jzk-1c-VjC"/>
+                            <constraint firstItem="b8o-2G-dhG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mcb-yg-XxU"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -37,6 +48,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="t" width="640" height="360"/>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

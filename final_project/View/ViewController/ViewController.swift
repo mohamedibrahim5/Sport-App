@@ -45,7 +45,7 @@ extension ViewController : UICollectionViewDelegate,UICollectionViewDataSource,U
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width*0.45, height: self.view.frame.width*0.5)
+        return CGSize(width: self.view.frame.width*0.45, height: self.view.frame.width*0.4)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.row)

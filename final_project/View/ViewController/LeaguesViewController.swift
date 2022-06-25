@@ -57,7 +57,7 @@ extension LeaguesViewController : UITableViewDelegate,UITableViewDataSource{
     override func viewDidAppear(_ animated: Bool) {
         if (leaguesArray.count == 0)
         {
-            for _ in 0...15000000 {}
+            for _ in 0...150000000 {}
             showalertt()
         }
     }
