@@ -8,7 +8,11 @@
 import UIKit
 import SafariServices
 import Network
-class FavouriteViewController: UIViewController {
+class FavouriteViewController: UIViewController, DeletionDelegate {
+    func deleteMovieAtIndexPath(indexPath: IndexPath) {
+        print("delete item")
+    }
+    
    
     var db = DBmanger.sharedInstance
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -43,7 +47,7 @@ extension FavouriteViewController : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! favouriteTableViewCell
         cell.textlabell.text = arr[indexPath.row].name
-        cell.imageweb.loadFrom(URLAddress: arr[indexPath.row].image!)
+        cell.imageweb.loadFrom(URLAddress: arr[indexPath.row].image ?? "")
         cell.link = arr[indexPath.row].sport
         cell.gotoyoutube = self
         return cell
@@ -59,6 +63,12 @@ extension FavouriteViewController : UITableViewDelegate,UITableViewDataSource{
             showalert2()
         }
         tableview.reloadData()
+    }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteItem = UIContextualAction(style: .destructive, title: "remove from Favourite") { [self] Action, view, completionHandler in
+            db.delete(favourite: self.arr[indexPath.row], indexPath: indexPath, appDelegate: appDelegate, delegate: self)
+        }
+        return UISwipeActionsConfiguration(actions: [deleteItem])
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let monitor = NWPathMonitor()
