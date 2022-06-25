@@ -45,25 +45,7 @@ extension DBmanger {
         }
         
     }
-    
-    func addMoviejsonind(appDelegate : AppDelegate , strname : String){
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        if let entity = NSEntityDescription.entity(forEntityName: "Fav", in: managedContext){
-            let leg1 = NSManagedObject(entity: entity, insertInto: managedContext)
-            leg1.setValue(strname, forKey: "name")
-            do{
-                try managedContext.save()
-                print("data is saved")
-            }catch let error as NSError{
-                print("Error in Saving")
-                print(error.localizedDescription)
-            }
-            
-        }
-        
-    }
-    
+
     func addimageandytblink(
         appDelegate : AppDelegate ,strname : String, strimage : String,stryoutbe:String,strid:String
     ){

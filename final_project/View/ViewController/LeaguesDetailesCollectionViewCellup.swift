@@ -8,5 +8,5 @@
 import UIKit
 
 class LeaguesDetailesCollectionViewCellup: UICollectionViewCell {
-    @IBOutlet weak var textlabel4: UILabel!
+  //  @IBOutlet weak var textlabel4: UILabel!
 }

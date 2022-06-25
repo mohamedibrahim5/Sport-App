@@ -9,18 +9,27 @@ import UIKit
 import SafariServices
 import Network
 class FavouriteViewController: UIViewController {
+   
     var db = DBmanger.sharedInstance
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var arr = [Fav]()
+    let refrechController = UIRefreshControl()
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         arr = db.fetchData(appDelegate: appDelegate)
         DispatchQueue.main.async { [self] in
             tableview.reloadData()
-          
+            refrechController.tintColor = UIColor.red
+                    refrechController.transform = CGAffineTransform.init(scaleX: 1.5, y: 1.5)
+                    refrechController.addTarget(self, action: #selector(getData) , for: .valueChanged)
+                    tableview.addSubview(refrechController)
         }
     }
+    @objc func getData(){
+            refrechController.endRefreshing()
+            tableview.reloadData()
+        }
 }
 
 extension FavouriteViewController : UITableViewDelegate,UITableViewDataSource{
@@ -62,9 +71,8 @@ extension FavouriteViewController : UITableViewDelegate,UITableViewDataSource{
                         LeaguesDetailesViewController
                         vc.arr = arr[indexPath.row]
                         vc.checkstrname = arr[indexPath.row].name!
-//                        if (arr[indexPath.row].name!.isEmpty || ((arr[indexPath.row].sport?.isEmpty) != nil)){
-//                            showalertt()
-//                        }
+                        vc.checkyoutube = arr[indexPath.row].sport!
+                        vc.checkimage = arr[indexPath.row].image!
                       present(vc, animated: true, completion: nil)
 
                     }
@@ -107,13 +115,6 @@ extension FavouriteViewController
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-//    func showalertt(){
-//        let alert = UIAlertController(title: "Sorry", message: "This Leagues Will Coming Soon ", preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-//        self.present(alert, animated: true, completion: nil)
-//        
-   }
-//
-//}
 
 
+}

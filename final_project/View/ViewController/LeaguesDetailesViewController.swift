@@ -7,6 +7,7 @@
 
 import UIKit
 import SafariServices
+import Network
 class LeaguesDetailesViewController:UIViewController {
 
     var y = 0
@@ -45,7 +46,6 @@ class LeaguesDetailesViewController:UIViewController {
         }
         else {
             db.addimageandytblink(appDelegate: appDelegate,strname: checkstrname, strimage: checkimage, stryoutbe: checkyoutube, strid: id)
-       
         }
     }
     var checkstrname:String = ""
@@ -131,7 +131,7 @@ extension LeaguesDetailesViewController:UICollectionViewDelegate,UICollectionVie
            y = 1
         }
         if (y == 1){
-            for _ in 0...15000000{}
+            for _ in 0...20000000{}
             showalertt()
         }
     }

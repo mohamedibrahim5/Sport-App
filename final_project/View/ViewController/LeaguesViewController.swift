@@ -75,6 +75,9 @@ extension LeaguesViewController : UITableViewDelegate,UITableViewDataSource{
             LeaguesDetailesViewController
    
         vc.checkstrname = leaguesArray.filter({$0.strSport == checkLeagues})[indexPath.row].strLeague!
+        vc.checkimage = leaguesArray.filter({$0.strSport == checkLeagues})[indexPath.row].strBadge!
+        vc.checkyoutube = leaguesArray.filter({$0.strSport == checkLeagues})[indexPath.row].strYoutube!
+        
         vc.leg = leaguesArray.filter({$0.strSport == checkLeagues})[indexPath.row]
         present(vc, animated: true, completion: nil)
     }
